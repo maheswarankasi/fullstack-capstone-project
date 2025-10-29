@@ -1,19 +1,20 @@
-/*jshint esversion: 6 */
+
+/*jshint esversion: 8 */
 const express = require('express');
 const router = express.Router();
 const connectToDatabase = require('../models/db');
 
 // Search for gifts
-/*jshint esversion: 6 */
+
 router.get('/', async (req, res, next) => {
     try {
         // Task 1: Connect to MongoDB using connectToDatabase database. Remember to use the await keyword and store the connection in `db`
-        /*jshint esversion: 6 */
+        
         const db = await connectToDatabase();
         const collection = db.collection("gifts");
 
         // Initialize the query object
-        /*jshint esversion: 6 */
+        
         let query = {};
 
         // Add the name filter to the query if the name parameter is not empty
@@ -33,7 +34,7 @@ router.get('/', async (req, res, next) => {
             }
 
             // Task 4: Fetch filtered gifts using the find(query) method. Make sure to use await and store the result in the `gifts` constant
-            /*jshint esversion: 6 */
+            
             const gifts = await collection.find(query).toArray();
 
             res.json(gifts);
