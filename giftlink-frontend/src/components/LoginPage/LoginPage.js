@@ -30,7 +30,7 @@ function LoginPage() {
     const handleLogin = async () => {
         try {
             //first task
-            const response = await fetch(`/api/auth/login`, {
+            const res = await fetch(`${urlConfig.backendUrl}/api/auth/login`, {
                 //Task 7: Set method
                 method: 'POST',
                 //Task 8: Set headers
@@ -72,7 +72,7 @@ function LoginPage() {
         } catch (e) {
             console.log("Error fetching details: " + e.message);
         }
-    }    return (
+    }; return (
         <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-4">
